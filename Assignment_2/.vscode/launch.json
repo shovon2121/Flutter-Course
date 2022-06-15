@@ -13,7 +13,7 @@
             "name": "Dart & Flutter",
             "request": "launch",
             "type": "dart",
-            "program": "string_problem_solving.dart"
+            "program": "seperate_alphabets_from_string.dart"
         }
     ]
 }
