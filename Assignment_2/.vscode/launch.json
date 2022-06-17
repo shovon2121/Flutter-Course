@@ -13,7 +13,7 @@
             "name": "Dart & Flutter",
             "request": "launch",
             "type": "dart",
-            "program": "seperate_alphabets_from_string.dart"
+            "program": "class.dart"
         }
     ]
 }
