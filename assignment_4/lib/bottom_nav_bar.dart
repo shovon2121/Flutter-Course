@@ -24,8 +24,10 @@ class _BottomNavControllerState extends State<BottomNavController> {
 
   Widget build(BuildContext ctx) {
     return Scaffold(
-      backgroundColor: Colors.amber,
       bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.amber,
+          selectedItemColor: Colors.white,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.shopping_bag), label: "My Adds"),
