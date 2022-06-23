@@ -2,9 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
-  List <String> _categories = [
-    "Food","Electronics","Groceries","Dress","Fashion","Glasses","Camera"
+  List<String> _categories = [
+    "Food",
+    "Electronics",
+    "Groceries",
+    "Dress",
+    "Fashion",
+    "Glasses",
+    "Camera"
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +68,9 @@ class Home extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(width: 10,),
+                    SizedBox(
+                      width: 10,
+                    ),
                     Container(
                       padding: EdgeInsets.only(left: 10, top: 5),
                       height: 130,
@@ -90,7 +99,9 @@ class Home extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(width: 10,),
+                    SizedBox(
+                      width: 10,
+                    ),
                     Container(
                       padding: EdgeInsets.only(left: 10, top: 5),
                       height: 130,
@@ -119,53 +130,115 @@ class Home extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(width: 10,),
+                    SizedBox(
+                      width: 10,
+                    ),
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Top Categories",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
+                    Text(
+                      "Top Categories",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
 
+                      ),
                     ),
-                    ),
-                    Text("View All",
+                    Text(
+                      "View All",
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
                         color: Color(0xffff4800),
                       ),
                     ),
-                 
                   ],
                 ),
               ),
-              SizedBox(height: 15,),
+              SizedBox(
+                height: 15,
+              ),
               Container(
                 height: 40,
-                child: ListView.builder(itemCount: _categories.length,
-                scrollDirection: Axis.horizontal
-                ,itemBuilder: (_, index){
-                  return Container(
-                    margin: EdgeInsets.only(right: 5),
-                    padding: EdgeInsets.only(top: 13),
-                    height: 15,
-                    width: 120,
-                    child: Text(_categories[index],textAlign: TextAlign.center,),
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.amber),
-
-                  );
+                child: ListView.builder(
+                    itemCount: _categories.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (_, index) {
+                      return Container(
+                        margin: EdgeInsets.only(right: 5),
+                        padding: EdgeInsets.only(top: 13),
+                        height: 15,
+                        width: 120,
+                        child: Text(
+                          _categories[index],
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800),
+                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Colors.amber),
+                      );
                     }),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: GridView.builder(
+
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,crossAxisSpacing: 5,mainAxisSpacing: 5
+                  ),itemCount: 10,
+                  itemBuilder: (_, index) {
+                    return Container(
+                      margin: EdgeInsets.all(5),
+
+                      color: Colors.white38,
+                      child: Stack(
+                        clipBehavior: Clip.none,
+                        children: [
+                          Positioned(
+                              top: -20,
+
+                            child: Image.asset(
+                              "assets/img_4.png",width: 150,
+
+                            ),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                "Apple Watch",
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.w700),
+                              ),
+                              Text(
+                                "Series X White",
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                              Text(
+                                "\$400",
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w700,color: Colors.red),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                ),
               )
-
-
             ],
           ),
         ),
