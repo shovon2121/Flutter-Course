@@ -17,6 +17,15 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
         designSize: Size(428, 950),
         builder: (context, child) => GetMaterialApp(
+          theme: ThemeData(
+            brightness: Brightness.dark,
+            textTheme: TextTheme(
+              headline6: TextStyle(fontSize: 30),
+              bodyText2: TextStyle(
+                fontSize: 25,
+              )
+            )
+          ),
              translations: SetLocal(),
               locale: Locale('bn', 'BD'),
               fallbackLocale: Locale('en','US'),
