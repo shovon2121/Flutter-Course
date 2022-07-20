@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toast/toast.dart';
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,7 +120,9 @@ class MyHomePage extends StatelessWidget {
                       ),
                       label: const Text("Copy this question"),
 
-                      onPressed: () {  },),
+                      onPressed: () {
+                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Toast"),backgroundColor: Colors.blue,));
+                      },),
                   ),
                   Container(
                     padding: EdgeInsets.all(5),
@@ -133,7 +141,41 @@ class MyHomePage extends StatelessWidget {
                         color: Color(0xff5f9ea0),
                       ),),
 
-                      onPressed: () {  },),
+                      onPressed: () {
+                      showDialog(context: context, builder: (_) {
+                        return AlertDialog(
+
+                            content: Container(
+                              decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(25))),
+                              width: MediaQuery.of(context).size.width * 0.6,
+                              height: MediaQuery.of(context).size.height * 0.6,
+
+                              child: Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text("Download the best\n100 questions",style: TextStyle(
+                                        fontSize: 20.sp,
+                                        color: Color(0xff5f9ea0),
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      ),
+                                      SizedBox(height: 30,),
+                                      Text("We'd love to send you an E-Book of the\n100top questions you can ask your\nloved one to get to know them better",
+                                      style: TextStyle(
+                                        fontSize: 12.sp,
+                                        color: Color(0xff5f9ea0),
+                                      ),
+                                      ),
+                                    ],
+                                  ),
+
+                                ],
+                              ),
+                            ),
+                        );
+                      });
+                      },),
                   ),
                 ],
               ),
